@@ -39,7 +39,7 @@ jobs:
           REPO_KEY: ${{ secrets.REPO_KEY }}
         run: |
           ssh target << 'EOF'
-            cd BackDDA2/
+            cd Gateway-De-Pagos-DAII
             git pull https://github.com/KatherineDG/Gateway-De-Pagos-DAII
             source venv/bin/activate
             pip install -r requirements.txt
