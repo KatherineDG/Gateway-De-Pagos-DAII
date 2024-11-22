@@ -257,8 +257,8 @@ def iniciar_transaccion(transaccion):
                     "descripcion": "Facturas tipo A y B enviadas",
                 }   
 
-                #publish_to_topic(sns_client, config("TOPIC_ARN_GATEWAYDEPAGOS"), 'facturaClienteGenerada', cuerpo_mensaje)
-                #publish_to_topic(sns_client, config("TOPIC_ARN_GATEWAYDEPAGOS"), 'facturaAdministradorGenerada', cuerpo_mensaje)
+                publish_to_topic(sns_client, config("TOPIC_ARN_GATEWAYDEPAGOS"), 'generated-customer-invoice', cuerpo_mensaje)
+                publish_to_topic(sns_client, config("TOPIC_ARN_GATEWAYDEPAGOS"), 'generated-administrator-invoice', cuerpo_mensaje)
                 
                 return (True, "Transaccion completada de manera exitosa, esté pendiente a su casilla de email donde se le enviara la factura correspondiente")
             
