@@ -274,8 +274,13 @@ def iniciar_reembolso(reembolso):
     # No tenemos base de datos. Solo será crear la nota de credito y enviarla por email.
     print("REEEMBOLSOSOSOSO", reembolso.id_external, reembolso)
     #enviar evento de reembolso exitoso
+    cuerpo_mensaje = {
+        "id": reembolso.id,
+        "reservation": reembolso.id_external,
+        "description": "Reembolso exitoso",
+    }
 
-    #publish_to_topic(sns_client, config("TOPIC_ARN_GATEWAYDEPAGOS"), 'valid-reimbursement', cuerpo_mensaje)
+    publish_to_topic(sns_client, config("TOPIC_ARN_GATEWAYDEPAGOS"), 'valid-reimbursement', cuerpo_mensaje)
 
     print('etnro')
     notaDeCredito = facturas.generar_nota_credito('pagos/nota_credito.html', reembolso)
