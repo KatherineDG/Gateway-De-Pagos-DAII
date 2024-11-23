@@ -117,7 +117,7 @@ def guardar_entidades(mensaje, caso, topico):
             return transaccion
         else:  # Asumimos que 'caso' es 'reembolso'
             reembolso = Reembolso.objects.create(
-                #id_external=data['id'],
+                id_external=data['id'],
                 room=data.get('room'),
                 start_date=data.get('start_date'),
                 end_date=data.get('end_date'),
