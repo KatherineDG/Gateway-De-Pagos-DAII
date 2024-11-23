@@ -121,6 +121,7 @@ def detallesTransaccion(request, transaccion_id):
             transaccion_data = {
                 'nombre_destinatario': transaccion.destinatario.name,
                 'monto': transaccion.monto,
+                'nombre_pagador': transaccion.pagador.name,
             }
             return JsonResponse(transaccion_data)
         else:
